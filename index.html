@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<title>Scroll Animation</title>
+
+<style>
+body{
+margin:0;
+font-family:sans-serif;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+background:black;
+color:white;
+}
+
+.title{
+letter-spacing:10px;
+font-size:50px;
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.stats{
+opacity:0;
+transition:1.5s;
+}
+
+.car{
+width:300px;
+transition:transform 0.3s;
+}
+
+.content{
+height:200vh;
+}
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<h1 class="title">W E L C O M E</h1>
+
+<div class="stats">
+<div>95% Success Rate</div>
+<div>120+ Projects</div>
+<div>50+ Developers</div>
+</div>
+
+<img src="car.png" class="car">
+
+</section>
+
+<section class="content">
+<h2>Scroll Down</h2>
+</section>
+
+<script>
+
+window.onload = function(){
+
+document.querySelector(".title").style.opacity = "1";
+document.querySelector(".title").style.transform = "translateY(0)";
+
+setTimeout(()=>{
+document.querySelector(".stats").style.opacity = "1";
+},500);
+
+}
+
+window.addEventListener("scroll",function(){
+
+let scroll = window.scrollY;
+let car = document.querySelector(".car");
+
+car.style.transform = "translateX(" + scroll + "px)";
+
+});
+
+</script>
+
+</body>
+</html>
